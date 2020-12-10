@@ -87,11 +87,9 @@ For this particular question:- Do you think the company should focus more on its
 This is tricky, there are two ways to think about this: Develop the Website to catch up to the performance of the mobile app, or develop the app more since that is what is working better. This sort of answer depends on the other factors going on at the company, you would probably want to explore the relationship between Length of Membership and the App or the Website before concluding!
 
 
+2. Second Task:- We will be working with an advertising data set, indicating whether or not a particular internet user clicked on an Advertisement on a company website or the app. These advertisements may be related to some other company's products and may be this companny has some tie-up with other companies in order to increase profits. We will try to create a model that will predict whether or not they will click on an ad based off the features of that user.  This data set contains the following features:  We'll work with the Ecommerce Customers csv file from the company. It has Customer info, suchas Email, Address, and their color Avatar. Then it also has numerical value columns.
 
-Also, we will be working with a fake advertising data set, indicating whether or not a particular internet user clicked on an Advertisement on a company website. We will try to create a model that will predict whether or not they will click on an ad based off the features of that user.  This data set contains the following features:  
-
-We'll work with the Ecommerce Customers csv file from the company. It has Customer info, suchas Email, Address, and their color Avatar. Then it also has numerical value columns:
-
+Features Used:-
 Age: cutomer age in years 
 Area Income: Avg. Income of geographical area of consumer 
 Daily Internet Usage: Avg. minutes a day consumer is on the internet 
@@ -101,3 +99,47 @@ Male: Whether or not consumer was male
 Country: Country of consumer 
 Timestamp: Time at which consumer clicked on Ad or closed window 
 Clicked on Ad: 0 or 1 indicated clicking on Ad
+
+We will first do exploratory data analysis to get an idea about the data we have, to understand the relationship between different features, and also based upon the plots we will try to anticipate what can be the final answer for the problem so that even the board members in the organization can understand it better. After that, we will do data pre-processing that includes data cleaning, splitting of data, feature scaling, and encoding the categorical data. After that, we will start with the deployment of machine learning algorithms. For this part, since our data has only five features and that too is important for getting the dependent variable, so feature selection is not necessary for this task.
+
+We will use eight types of classification techniques which include Logistic Regression, KNearestNeighbour Classification, Decision Tree Classification, Random Forest Classification, Support Vector Machine Classification, XGBoost Classification, Catboost Classification, and a Deep Learning Neural Network with two hidden layers. To improve the model performance, we will also apply model selection techniques like K-Fold Cross-Validation and Hyperparameter Tuning using Randomized Search and Grid Search. In the end, we will also compare these models by comparing their accuracies to get the best model. This dataset contains details of 1000 internet users who use these online platforms at regular intervals of time. 
+
+Results Obtained:-
+
+1. Logistic Regression:-
+Accuracy: 96.53 %
+Standard Deviation: 1.48 %
+
+2. KNearestNeighbour Classification:-
+Accuracy: 96.27 %
+Standard Deviation: 1.55 %
+
+3. SVM Classification:-
+Accuracy: 96.80 %
+Standard Deviation: 1.36 %
+
+4. Naive Bayes Classification:-
+Accuracy: 96.27 %
+Standard Deviation: 1.31 %
+
+5. Decision Trees Classification:-
+Accuracy: 95.07 %
+Standard Deviation: 2.74 %
+
+6. Random Forest Classification:-
+Accuracy: 95.73 %
+Standard Deviation: 1.87 %
+
+7. XGBoost Classification:-
+Accuracy: 95.60 %
+Standard Deviation: 1.58 %
+
+8. CatBoost Classification:-
+Accuracy: 95.87 %
+Standard Deviation: 1.73 %
+
+9. Deep Learning Neural Network:-
+Accuracy: 96.1333%
+Standard Deviation: 2.4184476%
+
+So, as we can see Support Vector Machine has the highest accuracy i.e. 96.80 which is using RBF as a kernel.
