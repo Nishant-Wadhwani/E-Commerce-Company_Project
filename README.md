@@ -206,3 +206,121 @@ Accuracy: 89.0
 Standard Deviation: 5.972
 
 So, as we can see KNN Classification has predicted with best average accuracy i.e. 91% whether the customer will buy the product or not after clicking the ad with the best design or the ad with maximum click-through rates. It means our model is 91 percent efficient in predicting the correct number of users who have either purchased the product or not. Also, out of the 400 customers, around 140 customers have brought something for them either from the company's website or app or through visiting the store which is tremendous for the company's profit.
+
+5. Fifth Task:- The strategy team of Tech_Novan collected some data about their customers. Each row corresponds to a customer of the the organization. And for each of these customers, the data analyst of this team gathered the following information.
+First the customer I.D. then the gender,after that the age, the annual income and then the spending score which can take values between 1 and 100. The spending score is a metric made by the comapany to measure how much each customer spends. And so they made this metric which takes values from 1 to 100. The scale of the metric is such that well the lower the score the less the customer spends and the higher the score the more the customer spends. And this is in a certain period of time let's say in the past year.
+And so now what is the purpose of this mission what did this strategic team or analytics team want to simply understand its customers.That is,they want to identify some patterns within its base of customers using clustering technique.But even though we don't know what specifically to predict we still know that we want to identify some patterns and that's the why of this mission.
+
+How are we going to identify such patterns?
+Well we will do this with using K-means Clustering and Hierrarchical Clustering and more specifically what we will do is we will create a dependent variable which will take a finite number of values.
+
+
+
+"""
+Okay so interesting we have these different classes of customers and so now you know some business strategies
+
+or business ideas or you know marketing ideas would be for example to target better our customers.
+
+These customers here who belong to cluster three and are characterized by a high annual income in a
+
+high spending score well to these customers we could truly target them the most when there are some
+
+new offers.
+
+You know some new deals because indeed these are with these customers that you'll get the highest chance
+
+to sell your products right.
+
+Because they spend a lot.
+
+And besides they have high annual income therefore a high potential to buy a lot of stuff.
+
+But then you know as a mom you are responsible and you have some ethics.
+
+Well for these customers who seem to earn a low annual income but yet seem to have a problem spending
+
+too much maybe in the mall.
+
+Well maybe that the mall would like to be responsible and protect these customers by not targeting them
+
+too much with new deals and new irresistible offers that after all maybe these customers don't need
+
+at the end of the day.
+
+So yes there is some social responsibility or some ethics in the mall.
+
+Well they would limit perhaps the targeting to these customers.
+
+You know the advertising and all the digital marketing deployed to these customers.
+
+Right.
+
+So that's another insight we could get.
+
+Or another new action item in the strategy which aims to indeed boost the business.
+
+But at the same time be socially responsible.
+
+Then what can we do with this cluster as well.
+
+Same you know low annual income and low spending score.
+
+Well if I was in the board of the mall I would actually not do anything with this cluster because you
+
+know we don't really have to protect them because they don't spend much.
+
+And besides they have a low income so we don't want to target them too much.
+
+What about this one now a high annual income and a low spending score.
+
+Well that's another closer.
+
+That would be interesting to target right.
+
+Because maybe we're missing out on a lot of customers who don't seem to take much action in the mall
+
+here.
+
+So maybe you know for these classes we could brainstorm on how to send them some better advertising
+
+that attract them more and track them better into the mall so that they can purchase more products and
+
+increase their spending score.
+
+So that's what I would do with this cluster.
+
+I would try to improve the advertising so that they can become better customers more loyal customers
+
+who spend more in the mall.
+
+And finally while this cluster again not much we could do because at the same time we would like to
+
+target them but not too much because we don't want to target the ones that have a low annual income.
+
+So we want to protect them at the same time.
+
+And there you go.
+
+I wouldn't do too much here but you see that's exactly the purpose of doing clustering.
+
+We identified some different clusters of customers and for each of them we can deploy different marketing
+
+strategies or different business strategies which will boost customers in some of the clusters and will
+
+protect them in other clusters.
+
+You see you see the point.
+
+That's exactly the kind of insights that you can get from clustering.
+
+
+#Cluster-4:-Well this cluster basically contains all the customers that have a low annual 
+#income and who spends very few in the mall.
+#Cluster-5:-Then this cluster here corresponds to cluster number five and contains all the customers 
+#who earn a high annual income but still who don't spend much in the mall 
+#Cluster-1:-cluster no one is the cluster of the customers who earn 
+#a low annual income and yet have a high spending score.
+#Cluster-3:-cluster number three and contains all the customers that
+#earn a high annual income and also who spend a lot in the mall.
+#Cluster-2:-cluster which is like an average cluster and contains customers that earn
+#an average annual income and spend normally in the mall.
