@@ -247,15 +247,25 @@ Firstly, We as data scientists would like to implement Popularity Based Recommen
 
 The problems with popularity based recommendation system is that the personalization is not available with this method i.e. even though you know the behaviour of the user you cannot recommend items accordingly.
 
-Secondly,we will implement Collaberative filtering (Item-Item recommedation) is commonly used for recommender systems. These techniques aim to fill in the missing entries of a user-item association matrix. We are going to use collaborative filtering (CF) approach. CF is based on the idea that the best recommendations come from people who have similar tastes. In other words, it uses historical item ratings of like-minded people to predict how someone would rate an item.Collaborative filtering has two sub-categories that are generally called memory based and model-based approaches. 
+Secondly,we will implement Collaberative filtering (Item-Item recommedation) is commonly used for recommender systems. These techniques aim to fill in the missing entries of a user-item association matrix.  CF is based on the idea that the best recommendations come from people who have similar tastes. In other words, it uses historical item ratings of like-minded people to predict how someone would rate an item.Collaborative filtering has two sub-categories that are generally called memory based and model-based approaches. 
+
 For the memory based collaborative filtering(Item-Item recommedation) we have used these algorithms:-
+When we work with kNN — type recommender algorithms, there are 2 hyperparameters we can tune: the k parameter (yes, same k as in the name of the model type), and the similarity option. The k parameter is fairly straightforward, and analogous to how it works in general k-nearest neighbours models: it is the upper limit of similar items we want the algorithm to consider. For example, if the user rated 20 games, but we set k to 10, when we estimate a rating to a new game, only those 10 games out of 20 that are the closest to the new game will be considered. You can also set min_k, if a user does not have enough ratings, the global average will be used for estimations. As a default, it’s 1.
+
+We mentioned items being close to each other in the previous paragraph, but how do we determine that distance? It is the second hyperparameter, the similarity option, that defines the way to calculate it.Let’s have a look at the sim_option configuration first. This parameter is a dictionary, with the following keys:
+shrinkage: won’t need for basic kNN models, only comes in play with the KNNBaseline model.
+user_based: Basically, there are two different routes when you want to estimate similarities. You can either compute how similar each item is to each other item, or do the same with the users. For my project, I used False, considering I had 100 items and 230k users.
+min_support: The minimum number of common points under which the similarity will be set to 0. Example: if min_support is 10, and there are two games, only 9 users rated them both, regardless of the ratings, the two games’ similarity will be 0. I did not experiment with this in my project, did not seem to be significant considering the scope of the data, so I used the default 1.
+name: The type of formula, to be discussed further below.
+
+All the similarity functions will return a number between 0 and 1 to a specific (i, j) item pair. 1 means the ratings are perfectly aligned, 0 means there is no connection between the two items. In the formulas, rᵤᵢ is the rating user u gave to item i, μᵢ is the average ratings on item i, and Uᵢⱼ is the set of users that rated both items i and j. These are the three similarity metrics in the surprise similarity module:
+
+Item-based: For an item I, with a set of similar items determined based on rating vectors consisting of received user ratings, the rating by a user U, who hasn’t rated it, is found by picking out N items from the similarity list that have been rated by U and calculating the rating based on these N ratings.
+Item-based collaborative filtering was developed by Amazon. In a system where there are more users than items, item-based filtering is faster and more stable than user-based. It is effective because usually, the average rating received by an item doesn’t change as quickly as the average rating given by a user to different items. It’s also known to perform better than the user-based approach when the ratings matrix is sparse.
+
 1.KNNWithMeans is basic collaborative filtering algorithm, taking into account the mean ratings of each user.
 Here the function will display the 40 closest neighbours to a user which have rated the products in a very similar way as the user being considered. 
 The algorithm identifies these neighbours using ‘pearson_baseline’. This step accomplishes the training of the model. Moreover, this model can also predict a rating that a user might give to a product that he or she has not purchased yet. 
-
-Item-based: For an item I, with a set of similar items determined based on rating vectors consisting of received user ratings, the rating by a user U, who hasn’t rated it, is found by picking out N items from the similarity list that have been rated by U and calculating the rating based on these N ratings.
-
-Item-based collaborative filtering was developed by Amazon. In a system where there are more users than items, item-based filtering is faster and more stable than user-based. It is effective because usually, the average rating received by an item doesn’t change as quickly as the average rating given by a user to different items. It’s also known to perform better than the user-based approach when the ratings matrix is sparse.
 
 
 
